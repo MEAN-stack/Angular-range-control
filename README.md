@@ -30,7 +30,7 @@ I need to be able to specify the min and max values, and, if the range extends f
 
 I had a quick look at the HTML for some existing range slider controls. I soon came up with the following HTML fragment, comprising three nested `div` elements:
 
-```
+```HTML
 <div class="slider-target">
   <div class="slider-origin" style="left:60%">
     <div class="slider-handle"></div>
@@ -39,7 +39,7 @@ I had a quick look at the HTML for some existing range slider controls. I soon c
 ```
 The outermost element is the background of the control - the CSS looks like this:
 
-```
+```CSS
 .slider-target {
   position: relative;
   width: 90%;
@@ -53,7 +53,7 @@ The outermost element is the background of the control - the CSS looks like this
 
 The next element is used to anchor the slider's handle. Its left edge position (I have set it to 60% in an HTML style attribute) is given as a percentage of the target width, overriding the value given in the CSS:
 
-```
+```CSS
 .slider-origin {
   position: absolute;
   top: 0;
@@ -65,7 +65,7 @@ The next element is used to anchor the slider's handle. Its left edge position (
 
 The third element is the handle itself. I have arranged the CSS so that it is centred horizontally on the left edge of the parent element (the origin) and centred vertically on the outer element (the target):
 
-```
+```CSS
 .slider-handle {
   position: relative;
   width: 26px;
@@ -87,7 +87,7 @@ Here's what it looks like in the browser:
 
 Here is the full HTML:
 
-```
+```HTML
 !DOCTYPE html>
 <html ng-app="exampleApp">
   <head>
@@ -118,7 +118,7 @@ Here is the full HTML:
 
 I have used a Bootstrap glyphicon to add some styling to the slider handle. Here's the CSS for the handle and the glyphicon:
 
-```
+```CSS
 .slider-handle {
   position: relative;
   width: 20px;
@@ -153,7 +153,7 @@ The next thing I want to do is to add a variable to my controller's scope which 
 
 Here's the whole HTML file:
 
-```
+```HTML
 <!DOCTYPE html>
 <html ng-app="exampleApp">
   <head>
@@ -196,7 +196,7 @@ Here's the whole HTML file:
 
 And here's the CSS for the two background elements:
 
-```
+```CSS
  .slider-negative {
    background-color:red;
    border-top-left-radius:4px;
@@ -227,7 +227,7 @@ I don't actually know what the problem is here, but I'm going to fix it by remov
 
 My control needs to encapsulate a range of values, from a given minimum to a given maximum. There will be some maths required in order to convert between the value represented by the slider handle, and its position given as a percentage of the width of the slider. Here's the Angular controller:
 
-```
+```JavaScript
 angular.module("exampleApp", [])
 .controller("sliderCtrl", function($scope) {
   $scope.settings = {
@@ -274,7 +274,7 @@ I have also added behaviours which convert between slider values and percentages
 
 Here's how I use the controller behaviours in the HTML:
 
-```
+```HTML
 <body ng-controller="sliderCtrl">
   <div class="container" style="padding:20px;">
     <div class="slider-target" style="margin:20px">
@@ -311,7 +311,7 @@ Next, I want to make the slider handle draggable. There is an example of a dragg
 
 Here's the code:
 
-```
+```JavaScript
  angular.module('dragModule', [])
  .directive('myDraggable', ['$document', function($document) {
    return {
@@ -354,7 +354,7 @@ Here's the code:
 
 I'm going to modify this directive so that it only allows horizontal movement, then I'm going to include the directive in my Angular controller and add the my-draggable attribute to my slider's handle. Here's the modified directive:
 
-```
+```JavaScript
 .directive('myDraggable', ['$document', function($document) {
    return {
      link: function(scope, element, attr) {
@@ -407,7 +407,7 @@ I have moved the cursor: pointer CSS into my css file, and, in the mousemove han
 
 Here's the HTML which uses the directive:
 
-```
+```HTML
 <div class="slider-target" style="margin:20px">
   <div class="slider-origin slider-positive" ng-style="{'left':zeroPos()}"></div>
   <div class="slider-origin" ng-style="{'left':handlePos()}">
@@ -422,7 +422,7 @@ Here's a screenshot:
 
 This works ok, but really the directive should encapsulate the whole range control, not just the handle. Here are the changes needed to achieve this:
 
-```
+```JavaScript
 .directive('mySlider', ['$document', function($document) {
   return {
     link: function(scope, element, attr) {
@@ -471,7 +471,7 @@ I need to get this right, so I am going to modify the HTML to include two slider
 
 The controller doesn't need it's behaviours any more. Those calculations are done in the slider directive now. All I need is the variables to bind to the properties exposed by the directive - namely the min, max, and value of the sliders. My two sliders will have the same min and max so my controller looks like this:
 
-```
+```JavaScript
 angular.module("exampleApp", [])
 .controller("sliderCtrl", function($scope, $interval) {
   $scope.settings = {
@@ -487,7 +487,7 @@ angular.module("exampleApp", [])
 
 Now I'm going to move the slider's HTML into a template which the directive can use:
 
-```
+```HTML
 <script type="text/ng-template" id="rangetemplate">
   <div class="slider-positive" ng-style="{'left':zeroPos()}"></div>
   <div class="slider-origin" ng-style="{'left':handlePos()}">
@@ -512,7 +512,7 @@ Now I'm going to move the slider's HTML into a template which the directive can 
 
 There are three variables in the directive's scope, and they have two-way bindings to the controller's scope (the two-way binding is indicated by the '=' symbol). The bindings are achieved via attributes in the HTML named slidermin, slidermax, and sliderval. Like this:
 
-```
+```HTML
 <div my-slider slidermin="settings.range.min" slidermax="settings.range.max" sliderval="settings.value1" ...
 <div my-slider slidermin="settings.range.min" slidermax="settings.range.max" sliderval="settings.value2" ...
 ```
@@ -521,7 +521,7 @@ What happens when the user changes a value in one of the `<input>` elements?
 
 Angular will update the value of the variable in controller's scope, and the two-way binding will ensure that the corresponding value is updated in the directive's scope, but in order for the directive to adjust and re-render itself I need to set up some watchers:
 
-```
+```JavaScript
  ...
  //watchers
  scope.$watch('value', function(newValue) {
@@ -555,7 +555,7 @@ For completeness, here is the finished code:
 
 `slider.js`
 
-```
+```JavaScript
 angular.module("slider", [])
 .directive('mySlider', ['$document', function($document) {
   return {
@@ -724,7 +724,7 @@ angular.module("slider", [])
 
 `slidertest.html`
 
-```
+```HTML
 <!DOCTYPE html>
 <html ng-app="exampleApp">
   <head>
