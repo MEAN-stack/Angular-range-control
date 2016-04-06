@@ -88,7 +88,7 @@ Here's what it looks like in the browser:
 Here is the full HTML:
 
 ```HTML
-!DOCTYPE html>
+<!DOCTYPE html>
 <html ng-app="exampleApp">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
