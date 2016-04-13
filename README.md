@@ -674,7 +674,7 @@ angular.module("slider", [])
 	  }
 	}
         else if (children.eq(i).hasClass('slider-positive')) {
-	  elZero = children.eq(i);
+          elZero = children.eq(i);
         }
       }
       elZero.css('left', zeroPos());
