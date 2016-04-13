@@ -6,14 +6,14 @@ http://mean-stack.github.io/slidertest.html
 
 # A Reusable Control in AngularJS
 
-I want to share an AngularJS learning experience. The goal is to develop a reusable range slider control. 
+I want to share an AngularJS learning experience. My goal is to develop a reusable range slider control. 
 
 The end result probably won't be all that useful - range slider controls are available in HTML5, and have been done before in JavaScript, JQuery, and in AngularJS.
 
 Still, it's a good exercise and a fun way to practice and experiment with Angular. Hopefully, when it's finished, I will have a control which I understand well enough to add further features and customized behaviour.
 
 ## Development plan
-Since I'm fairly new to Angular, and I don't really know what I'm doing, I will start with a tiny fragment of HTML and CSS, constructing the control from the ground up, adding features and behaviour as I go.
+Since I'm fairly new to Angular, and I don't really know what I'm doing, I'll start with a tiny fragment of HTML and CSS, constructing the control from the ground up, adding features and behaviour as I go.
 
 I'll show my work, bugs and all, as I go along.
 
@@ -24,7 +24,7 @@ This image, cropped from a mock-up, is my spec.
 
 ![Screenshot](https://github.com/MEAN-stack/Angular-range-control/blob/master/Screenshot.jpg)
 
-I need to be able to specify the min and max values, and, if the range extends from a negative to a positive value, then I want the negative and positive parts of the control shown in different colours.
+I need to be able to specify the min and max values, and, if the range extends from a negative to a positive value, then I want the negative and positive parts of the control shown in different colours (red and blue in the mock-up).
 
 ## Step 1 - Starting point
 
