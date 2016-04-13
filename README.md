@@ -311,7 +311,7 @@ Here's a screenshot from the browser:
 
 Next, I want to make the slider handle draggable. There is an example of a draggable div on the AngularJS site [here](https://docs.angularjs.org/guide/directive)
 
-Here's the code:
+Here's the code, copied from that example:
 
 ```JavaScript
  angular.module('dragModule', [])
