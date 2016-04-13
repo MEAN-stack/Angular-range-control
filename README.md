@@ -671,8 +671,8 @@ angular.module("slider", [])
             if (grandchildren.eq(j).hasClass('slider-handle')) {
               elHandle = grandchildren.eq(j);
             }
-	  }
-	}
+          }
+        }
         else if (children.eq(i).hasClass('slider-positive')) {
           elZero = children.eq(i);
         }
