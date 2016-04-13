@@ -185,7 +185,7 @@ Here's the whole HTML file:
           <input id="handlepos" type="text" ng-model="settings.handlepos">
         </div>
         <div class="form-group">
-          <label for="handlepos">Zero Position</label>
+          <label for="zeropos">Zero Position</label>
           <input id="zeropos" type="text" ng-model="settings.zeropos">
         </div>
       </form>
