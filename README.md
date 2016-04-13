@@ -63,7 +63,7 @@ The next element is used to anchor the slider's handle. Its left edge position (
 }
 ```
 
-The third element is the handle itself. I have arranged the CSS so that it is centred horizontally on the left edge of the parent element (the origin) and centred vertically on the outer element (the target):
+The third element is the handle itself. I have arranged the CSS so that it is centred horizontally on the left edge of the parent element (the origin):
 
 ```CSS
 .slider-handle {
