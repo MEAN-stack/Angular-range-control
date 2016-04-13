@@ -697,7 +697,7 @@ angular.module("slider", [])
       elHandle.on('mousedown', function(event) {
         targetWidth = parseInt(element.prop('offsetWidth'));
         valueRange = scope.max - scope.min + 1;
-		
+	
         // Prevent default dragging of selected content
         event.preventDefault();
         startX = event.pageX;
@@ -708,7 +708,7 @@ angular.module("slider", [])
 
       function mousemove(event) {
         x = event.pageX - startX;
-	scope.$apply(function() {
+        scope.$apply(function() {
           scope.value = clip({min:scope.min, max:scope.max}, startValue + (x*valueRange)/targetWidth);
         })
         elOrigin.css('left', handlePos());
