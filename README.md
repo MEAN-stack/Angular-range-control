@@ -219,9 +219,11 @@ That looks ok, but I'm thinking that the new elements are not actually both nece
 
 ![Screenshot](https://github.com/MEAN-stack/Angular-range-control/blob/master/Slider3b.jpg)
 
-I don't actually know what the problem is here, but I'm going to fix it by removing the slider-negative element, and giving the target element a red background. That's better:
+I don't actually know what the problem is here, but I'm going to fix it by removing the slider-negative element, and giving the target element a red background:
 
 ![Screenshot](https://github.com/MEAN-stack/Angular-range-control/blob/master/Slider3c.jpg)
+
+That's better!
 
 ## Step 4 - Range settings
 
