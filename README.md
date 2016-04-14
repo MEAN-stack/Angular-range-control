@@ -31,7 +31,7 @@ I need to be able to specify the min and max values, and, if the range extends f
 I had a quick look at the HTML for some existing range slider controls. I soon came up with the following HTML fragment, comprising three nested `div` elements:
 
 ```HTML
-<div class="slider-target">
+**<div class="slider-target">**
   <div class="slider-origin" style="left:60%">
     <div class="slider-handle"></div>
   </div>
