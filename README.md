@@ -2,7 +2,7 @@
 
 Demo here:
 
-http://mean-stack.github.io/slidertest.html
+http://mean-stack.github.io/slider/slidertest.html
 
 # A Reusable Control in AngularJS
 
