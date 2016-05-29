@@ -4,6 +4,10 @@ Demo here:
 
 http://mean-stack.github.io/slider/slidertest.html
 
+and here:
+
+http://mean-stack.github.io/colorpicker/colorpicker.html
+
 # A Reusable Control in AngularJS
 
 I want to share an AngularJS learning experience. My goal is to develop a reusable range slider control. 
